@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -25,12 +26,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
               children: <Widget>[
 
                 ElevatedButton(
-                  onPressed: () {
-                  },
+                  onPressed: () {},
                   child: Text(
                     "Create new Account",
                     style: TextStyle(color: Colors.white),
@@ -52,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 TextButton(
                   onPressed: () {
+                    Navigator.pushNamed(context, 'login');
                   },
                   child: Text(
                     "Sign in",

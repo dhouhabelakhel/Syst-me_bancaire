@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:consummer/Pages/HomePage.dart';
+import 'package:consummer/Pages/login.dart';
+
 void main() {
   runApp( MyApp());
 }
@@ -10,7 +12,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        'home':(context)=>MyHomePage()// Define the route for the new page
+        'home':(context)=>MyHomePage(),
+        'login':(context)=>Login()// Define the route for the new page
 // Define the route for the new page
       },
       initialRoute: 'home',
