@@ -30,7 +30,7 @@ class _LoginState extends State<Login> {
                 decoration: InputDecoration(
                   labelText: 'Username',
                   labelStyle: TextStyle(
-                    color: Color(0xFF76EEEE),
+                    color: Color(0xFF0A6565),
                     wordSpacing: 1,
                     fontSize: 20,
                   ),
@@ -53,7 +53,7 @@ class _LoginState extends State<Login> {
                 decoration: InputDecoration(
                   labelText: 'Password',
                   labelStyle: TextStyle(
-                    color: Color(0xFF76EEEE),
+                    color: Color(0xFF0A6565),
                     wordSpacing: 1,
                     fontSize: 20,
                   ),
@@ -97,6 +97,13 @@ class _LoginState extends State<Login> {
                   overlayColor: MaterialStateProperty.all(Color(0x1F416A)),
                 ),
               ),
+              Row(
+                mainAxisAlignment:MainAxisAlignment.center,
+                children: [
+                  Text("Not registred?",style: TextStyle(color: Color(0xFF0A6565)),),
+                  TextButton(onPressed: null, child: Text("Create an account",style: TextStyle(color: Color(0xFF0A6565)),))
+                ],
+              )
             ],
           ),
         ),
