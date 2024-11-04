@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="3b7934a5-a068-4754-8683-179cd4214959" activeEnvironment="Default" name="transactions" resourceRoot="" soapui-version="5.6.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="83350e54-1b6b-4cea-bfee-0c11f0d46bb9" wsaVersion="NONE" name="TransactionServiceBinding" type="wsdl" bindingName="{http://example.com/}TransactionServiceBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8000/transactions/wsdl/?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8000/transactions/wsdl/?wsdl"><con:part><con:url>http://localhost:8000/transactions/wsdl/?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="TransactionService" targetNamespace="http://example.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://example.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://example.com/">
+      <xsd:element name="CreateTransactionRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="from_account_id" type="xsd:int"/>
+            <xsd:element name="to_account_id" type="xsd:int"/>
+            <xsd:element name="montant" type="xsd:decimal"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CreateTransactionResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateTransactionRequestMessage">
+    <wsdl:part name="parameters" element="tns:CreateTransactionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="CreateTransactionResponseMessage">
+    <wsdl:part name="parameters" element="tns:CreateTransactionResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="TransactionServicePortType">
+    <wsdl:operation name="CreateTransaction">
+      <wsdl:input message="tns:CreateTransactionRequestMessage"/>
+      <wsdl:output message="tns:CreateTransactionResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TransactionServiceBinding" type="tns:TransactionServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="CreateTransaction">
+      <soap:operation soapAction="http://example.com/CreateTransaction"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TransactionService">
+    <wsdl:port name="TransactionServicePort" binding="tns:TransactionServiceBinding">
+      <soap:address location="http://localhost:8000/transactions/wsdl/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8000/transactions/wsdl/</con:endpoint></con:endpoints><con:operation id="ddaa4e25-d595-4669-ab7f-047669407e62" isOneWay="false" action="http://example.com/CreateTransaction" name="CreateTransaction" bindingOperationName="CreateTransaction" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3588a9dd-66e1-4a26-951a-d7ec3fe62c57" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8000/transactions/soap/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:exam="http://example.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <exam:CreateTransactionRequest>\r
+         <from_account_id>1</from_account_id>\r
+         <to_account_id>3</to_account_id>\r
+         <montant>100.00</montant>\r
+      </exam:CreateTransactionRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://example.com/CreateTransaction"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
