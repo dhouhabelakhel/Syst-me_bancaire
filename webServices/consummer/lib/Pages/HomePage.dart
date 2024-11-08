@@ -10,7 +10,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color(0xFF060606),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -29,7 +29,10 @@ class _MyHomePageState extends State<MyHomePage> {
               children: <Widget>[
 
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'register');
+
+                  },
                   child: Text(
                     "Create new Account",
                     style: TextStyle(color: Colors.white),

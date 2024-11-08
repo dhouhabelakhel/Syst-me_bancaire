@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:consummer/Pages/HomePage.dart';
 import 'package:consummer/Pages/login.dart';
-
+import 'package:consummer/Pages/Register.dart';
+import 'package:consummer/Pages/RegisterCard.dart';
 void main() {
   runApp(MyApp());
 }
@@ -23,8 +24,9 @@ class MyApp extends StatelessWidget {
                   borderSide: BorderSide(color: Color(0xFF84a5f1))))),
       routes: {
         'home': (context) => MyHomePage(),
-        'login': (context) => Login() // Define the route for the new page
-// Define the route for the new page
+        'login': (context) => Login(),
+        'register':(context)=>Register(),
+        'card':(context)=>registerCard()
       },
       initialRoute: 'home',
     );

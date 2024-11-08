@@ -15,13 +15,17 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black54,
+      backgroundColor: Color(0xFF060606),
       appBar: AppBar(
-        backgroundColor:Colors.black54 ,
-        title: Text('Login',style: TextStyle(color:Color(0xFF76EEEE) )),
-      ),
-      body: Container(
-        margin:EdgeInsets.only(top: 200,left: 30,right: 30),
+          automaticallyImplyLeading: false,
+          backgroundColor: Colors.black54,
+          title: Center(
+            child: Text('Login',
+                style: TextStyle(
+                    color: Color(0xFF84a5f1), fontSize: 25, wordSpacing: 1)),
+          )),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.only(top: 150,right: 20,left: 20),
         child: Form(
           key: _formKey,
           child: Column(
@@ -29,6 +33,7 @@ class _LoginState extends State<Login> {
               TextFormField(
                 decoration: InputDecoration(
                   labelText: 'Username',
+                  suffixIcon: Icon(Icons.person, color: Color(0xFF0A6565)),
                   labelStyle: TextStyle(
                     color: Color(0xFF0A6565),
                     wordSpacing: 1,
@@ -52,6 +57,7 @@ class _LoginState extends State<Login> {
               TextFormField(
                 decoration: InputDecoration(
                   labelText: 'Password',
+                  suffixIcon:Icon(Icons.password,color:Color(0xFF0A6565)),
                   labelStyle: TextStyle(
                     color: Color(0xFF0A6565),
                     wordSpacing: 1,
@@ -84,9 +90,12 @@ class _LoginState extends State<Login> {
                     );
                   }
                 },
-                child: Text('Login',style: TextStyle(color: Colors.white),),
+                child: Text(
+                  'Login',
+                  style: TextStyle(color: Colors.white),
+                ),
                 style: ButtonStyle(
-                  padding:MaterialStateProperty.all(const EdgeInsets.all(20)),
+                  padding: MaterialStateProperty.all(const EdgeInsets.all(20)),
                   shape: MaterialStateProperty.all(RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(
                         MediaQuery.of(context).size.width * 0.015),
@@ -97,13 +106,55 @@ class _LoginState extends State<Login> {
                   overlayColor: MaterialStateProperty.all(Color(0x1F416A)),
                 ),
               ),
-              Row(
-                mainAxisAlignment:MainAxisAlignment.center,
-                children: [
-                  Text("Not registred?",style: TextStyle(color: Color(0xFF0A6565)),),
-                  TextButton(onPressed: null, child: Text("Create an account",style: TextStyle(color: Color(0xFF0A6565)),))
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children:<Widget> [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Not registred?",
+                        style: TextStyle(color: Color(0xFF0A6565)),
+                      ),
+                      TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, 'register');
+                          },
+                          child: Text(
+                            "Create an account",
+                            style: TextStyle(color: Color(0xFF0A6565)),
+                          ))
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Expanded(child: Divider(
+                        color: Color(0xFF0A6565),
+                        thickness: 1,
+                      )),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        child: Text( "Or login with",
+                          style: TextStyle( fontSize: 16, color: Color(0xFF0A6565), ), ), ),
+                      Expanded(child:
+                      Divider(
+                        color: Color(0xFF0A6565),
+                        thickness: 1,
+                      )
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Icon(Icons.facebook,color: Color(0xFF84a5f1),),
+                      Icon(Icons.g_mobiledata,color: Color(0xFF84a5f1),)
+
+                    ],
+                  )
                 ],
-              )
+              ),
+
             ],
           ),
         ),
