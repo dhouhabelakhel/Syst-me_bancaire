@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  u_credit_card: ^1.4.0
+
 
 
   # The following adds the Cupertino Icons font to your application.
