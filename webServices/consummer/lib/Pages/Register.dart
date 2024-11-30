@@ -65,6 +65,14 @@ class _RegisterState extends State<Register> {
                       ),
                     ),
                     style: TextStyle(color: Colors.white),
+                    validator: (value){
+                      if(value== null || value.isEmpty){
+                        return ('please enter your name');
+                      }
+                    },
+                    onSaved: (value){
+                      _username=value;
+                    },
                   ),
                   SizedBox(
                     height: 20,
@@ -229,7 +237,10 @@ class _RegisterState extends State<Register> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, 'card');
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                      }else{
+                      Navigator.pushNamed(context, 'card');}
                     },
                     child: Text(
                       "Register",

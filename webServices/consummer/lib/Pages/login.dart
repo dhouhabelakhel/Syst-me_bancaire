@@ -83,11 +83,6 @@ class _LoginState extends State<Login> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                          content: Text(
-                              'Form Submitted! Username: $_username, Password: $_password')),
-                    );
                   }
                 },
                 child: Text(

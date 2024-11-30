@@ -25,8 +25,8 @@ class compteRequest extends FormRequest
     {
         return [
             'RIB'=>'required',
-            'password'=>'required',
-            'solde'=>'required',
+            'password'=>'nullable',
+            'solde'=>'nullable',
             'user_id'=>'required'
         ];
     }
